@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HanaMoon|Chăm sóc da mặt</title>
+    <style>
+        .sidebar_left h3 {
+            color: #ffffff;
+            font-family: "Lora-Bold";
+            font-size: 25px;
+            font-weight: normal;
+            text-align: left;
+            font-style: normal;
+            letter-spacing: 0.13px;
+            line-height: normal;
+            border-radius: 40px 0 0;
+            background-color: #8D388A;
+            position: relative;
+            padding: 19px 0 19px 30%;
+            margin: 0;
+        }
+
+        .sidebar_left .menu_service ul {
+            list-style: none;
+            margin: 0;
+            padding: 0 35px 40px 35px;
+            box-shadow: 0 0 62px rgba(0, 0, 0, 0.1);
+            background-color: #ffffff;
+            border-bottom-right-radius: 40px;
+        }
+        .sidebar_left {
+            float: left;
+            width: 15%;
+            margin-left: 15%;
+        }
+
+        .content_right {
+            float: left;
+            width: 50%;
+            margin-right: 10%;
+            margin-left: 5%;
+        }
+
+        #banner_gr {
+            margin-bottom: 70px;
+        }
+
+        .section {
+            width: 100vw;
+            position: relative;
+            left: 50%;
+            right: 50%;
+            margin-left: -50vw;
+            margin-right: -50vw;
+        }
+
+        #banner_gr img {
+            width: 100%;
+            height: auto;
+        }
+
+        .menu_service {
+            list-style: none;
+            padding: 0;
+        }
+
+        .menu_service li {
+            margin-bottom: 10px;
+        }
+
+        .menu_service a {
+            text-decoration: none;
+            color: #8D388A;
+            font-weight: bold;
+
+        }
+
+        .product-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            justify-content: center;
+            margin-bottom: 10em;
+        }
+
+        .product {
+            background-color: #ffffff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .product img {
+            border-radius: 5px;
+            max-width: 100%;
+            height: auto;
+        }
+
+        .product h4 {
+            margin-top: 10px;
+            color: #333;
+        }
+
+        .price_pd_regular {
+            color: #8D388A;
+            font-family: "Lora-Bold";
+            font-size: 18px;
+            font-weight: normal;
+            text-align: center;
+            text-transform: uppercase;
+            font-style: normal;
+            letter-spacing: normal;
+            line-height: normal;
+        }
+
+        .product .btn_tim {
+            margin: 0 auto;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e7d7e5;
+            text-align: center;
+            margin: px;
+        }
+        body .btn_tim {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 167px;
+            height: 46px;
+            border-radius: 23px 0;
+            border: 1px solid #8D388A;
+            margin-top: 40px;
+            transition: all 0.2s ease-in-out;
+            z-index: 3;
+            color: #8f378b;
+        }
+    </style>
+    <link rel="stylesheet" href="/CSS/style.css">
+</head>
+
+<body>
+<!-- Messenger Plugin chat Code -->
+<div id="fb-root"></div>
+
+<!-- Your Plugin chat code -->
+<div id="fb-customer-chat" class="fb-customerchat">
+</div>
+
+<script>
+    var chatbox = document.getElementById('fb-customer-chat');
+    chatbox.setAttribute("page_id", "185247354669898");
+    chatbox.setAttribute("attribution", "biz_inbox");
+</script>
+
+<!-- Your SDK code -->
+<script>
+    window.fbAsyncInit = function () {
+        FB.init({
+            xfbml: true,
+            version: 'v18.0'
+        });
+    };
+
+    (function (d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = 'https://connect.facebook.net/vi_VN/sdk/xfbml.customerchat.js';
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+</script>
+
+    <div id="wrapper">
+        <div id="header">
+            <a href="index.html" class="logo">
+                <img src="/assets/logo1.png" alt="" width="100%" height="50px">
+            </a>
+            <div id="menu">
+                <div class="item">
+                    <a href="/index.html">Trang Chủ</a>
+                </div>
+                <div class="item">
+                    <a href="/gioithieu.html">Giới Thiệu</a>
+                </div>
+                <div class="item" id="dichvu">
+                    <a href="">Dịch Vụ</a>
+                    <div class="submenu">
+                        <a href="/sanpham.html">Sản Phẩm</a>
+                        <a href="/spaskin/goics.html">Gói Chăm Sóc</a>
+                    </div>
+                </div>
+                <div class="item">
+                    <a href="/booking.html">Đặt lịch</a>
+                </div>
+                <div class="item">
+                    <a href="/contact.html">Liên Hệ</a>
+                </div>
+            </div>
+            <div id="actions">
+                <div class="item">
+                    <a href="/login.html">
+                        <img src="/assets/user.svg" alt="">
+                    </a>
+                </div>
+                <div id="userGreeting"></div>
+                <div class="item">
+                    <a href="/cart.html">
+                        <img src="/assets/cart.svg" alt="">
+                    </a>
+                </div>
+            </div>
+        </div>
+    
+    <div id="banner_gr" class="banner_gr section">
+        <div class="banner_def"></div>
+        <img src="/assets/bglienhe.jpg" alt="">
+    </div>
+    <div class="sidebar_left">
+        <h3>DỊCH VỤ</h3>
+        <div class="menu_service">
+            <ul id="menu-menu-service" class="menu">
+                <li id="menu-item2" class="menu-item">
+                    <a href="/spaskin/goics.html" aria-current="page">Chăm sóc da mặt</a>
+                </li>
+                <li id="menu-item" class="menu-item"><a href="/sanpham.html">Sản phẩm</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="content_right">
+        <div class="product-container">
+            <div class="product">
+                <img src="/assets/csdm1.jpg" alt="Product 1">
+                <h4>Liệu pháp da trắng rạng rỡ với Vitamin C</h4>
+                <div class="price_pd_regular">
+                    <span class="price_title_regular">
+                        60 </span>
+                    <span class="price_title_unit"> $</span>
+                </div>
+                <a href="/spaskin/LPVitaminC.html" class="btn_tim">
+                    Xem chi tiết<i class="fa fa-angle-right" aria-hidden="true"></i>
+                </a>
+            </div>
+            <div class="product">
+                <img src="/assets/csdm1.jpg" alt="Product 2">
+                <h4>Liệu pháp phục hồi da lão hóa (70phút)</h4>
+                <div class="price_pd_regular">
+                    <span class="price_title_regular">
+                        45 </span>
+                    <span class="price_title_unit"> $</span>
+                </div>
+                <a href="/spaskin/PHD.html" class="btn_tim">
+                    Xem chi tiết<i class="fa fa-angle-right" aria-hidden="true"></i>
+                </a>
+            </div>
+            <div class="product">
+                <img src="/assets/csdm1.jpg" alt="Product 3">
+                <h4>Chăm sóc làm trắng da mặt (60phút)</h4>
+                <div class="price_pd_regular">
+                    <span class="price_title_regular">
+                        37 </span>
+                    <span class="price_title_unit"> $</span>
+                </div>
+                <a href="/spaskin/LTD.html" class="btn_tim">
+                    Xem chi tiết<i class="fa fa-angle-right" aria-hidden="true"></i>
+                </a>
+            </div>
+            <div class="product">
+                <img src="/assets/csdm1.jpg" alt="Product 4">
+                <h4>Gói chăm sóc da mặt cơ bản (60phút)</h4>
+                <div class="price_pd_regular">
+                    <span class="price_title_regular">
+                        27 </span>
+                    <span class="price_title_unit"> $</span>
+                </div>
+                <a href="/spaskin/DMCB.html" class="btn_tim">
+                    Xem chi tiết<i class="fa fa-angle-right" aria-hidden="true"></i>
+                </a>
+            </div>
+
+        </div>
+        
+    </div>
+    <div class="menu_fixed">
+        <ul>
+            <li><a href="tel:+84 373487413"><img src="/assets/phone.png" alt=""></a></li>
+            <li><a href="mailto:sangvan0373@gmail.vn"><img src="/assets/mail.png" alt="hana moon"></a>
+            </li>
+            <li><a href="/booking.html" class="booking_popup_link"><img src="/assets/cal.png"
+                        alt="hana moon"><span>Đặt lịch ngay</span></a></li>
+        </ul>
+    </div>
+    </div>
+    <div id="footer">
+        <div class="box">
+          <div class="logo">
+            <img src="/assets/logo3.png" alt="" width="200" height="60">
+          </div>
+          <p>Cung cấp sản phẩm với chất lượng an toàn cho quý khách</p>
+        </div>
+        <div class="box">
+          <h3>NỘI DUNG</h3>
+          <ul class="quick-menu">
+            <div class="item">
+              <a href="/index.html">
+                <img src="/assets/icon/house-icon.svg">
+                Trang chủ
+              </a>
+            </div>
+            <div class="item">
+              <a href="/dichvu.html">
+                <img src="/assets/icon/spa-icon.svg">
+                Dịch Vụ
+              </a>
+            </div>
+            <div class="item">
+              <a href="/goics.html">
+                <img src="/assets/icon/face-icon.svg">
+                Gói Chăm Sóc
+              </a>
+            </div>
+            <div class="item">
+              <a href="/booking.html">
+                <img src="/assets/icon/date-icon.svg">
+                Đặt Lịch
+              </a>
+            </div>
+            <div class="item">
+              <a href="/contact.html">
+                <img src="/assets/icon/lh-icon.svg">
+                Liên hệ
+              </a>
+            </div>
+          </ul>
+        </div>
+        <div class="box">
+          <h3>LIÊN HỆ</h3>
+          <div class="box-item">
+            <p>
+              <img src="/assets/icon/gps-icon.svg">
+              <strong>Địa chỉ: </strong>
+              412 Nguyen Thi Minh Khai Str., FL14, Dist.3, HCMC, Viet Nam
+            </p>
+            <p>
+              <img src="/assets/icon/phone-icon.svg">
+              <strong>Phone: </strong>
+              0373487413
+            </p>
+            <p>
+              <img src="/assets/icon/email-icon.svg">
+              <strong>Email: </strong>
+              sangvan0373@gmail.com
+            </p>
+          </div>
+        </div>
+        <div class="box">
+          <h3>MẠNG XÃ HỘI</h3>
+          <div class="social-icons">
+            <a href="https://www.facebook.com/hanamoonspa" target="_blank">
+              <img src="/assets/icon/facebook-icon.svg" alt="Facebook">
+            </a>
+            <a href="https://www.youtube.com/@vansang62" target="_blank">
+              <img src="/assets/icon/youtube-icon.svg" alt="YouTube">
+            </a>
+            <a href="https://www.instagram.com/sangvan62" target="_blank">
+              <img src="/assets/icon/instagram.svg" alt="Instagram">
+            </a>
+          </div>
+        </div>
+      </div>
+    <script src="/script.js"></script>
+</body>
+
+</html>

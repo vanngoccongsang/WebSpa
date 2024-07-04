@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hana Moon Shop</title>
+
+    <link rel="icon" href="assets/logo1.png" type="image/x-icon">
+    <link rel="shortcut icon" href="assets/logo1.png" type="image/x-icon">
+
+    <link rel="stylesheet" href="/CSS/style.css">
+    <script defer src="index.js"></script>
+</head>
+
+<body>
+    <!-- Messenger Plugin chat Code -->
+    <div id="fb-root"></div>
+
+    <!-- Your Plugin chat code -->
+    <div id="fb-customer-chat" class="fb-customerchat">
+    </div>
+
+    <script>
+        var chatbox = document.getElementById('fb-customer-chat');
+        chatbox.setAttribute("page_id", "185247354669898");
+        chatbox.setAttribute("attribution", "biz_inbox");
+    </script>
+
+    <!-- Your SDK code -->
+    <script>
+        window.fbAsyncInit = function () {
+            FB.init({
+                xfbml: true,
+                version: 'v18.0'
+            });
+        };
+
+        (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = 'https://connect.facebook.net/vi_VN/sdk/xfbml.customerchat.js';
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
+    <div id="wrapper">
+        <div id="header">
+            <a href="index.html" class="logo">
+                <img src="assets/logo1.png" alt="" width="100%" height="50px">
+            </a>
+            <div id="menu">
+                <div class="item">
+                    <a href="index.html">Trang Chủ</a>
+                </div>
+                <div class="item">
+                    <a href="gioithieu.html">Giới Thiệu</a>
+                </div>
+                <div class="item" id="dichvu">
+                    <a href="">Dịch Vụ</a>
+                    <div class="submenu">
+                        <a href="sanpham.html">Sản Phẩm</a>
+                        <a href="/spaskin/goics.html">Gói Chăm Sóc</a>
+                    </div>
+                </div>
+                <div class="item">
+                    <a href="booking.html">Đặt lịch</a>
+                </div>
+                <div class="item">
+                    <a href="contact.html">Liên Hệ</a>
+                </div>
+                <div id="adminLink">
+                    <a href="admin.html">ADMIN</a>
+                </div>
+            </div>
+            <div id="actions">
+                <div class="item">
+                    <a href="login.html">
+                        <img src="assets/user.svg" alt="">
+                    </a>
+                </div>
+                <div id="userGreeting"></div>
+                <div class="item">
+                    <a href="cart.html">
+                        <img src="assets/cart.svg" alt="">
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div id="banner">
+            <div class="box-left">
+                <h2>
+                    <span>SẮC ĐẸP</span>
+                    <br>
+                    <span>TỰ TIN</span>
+                </h2>
+                <p>Trải nghiệm chăm sóc da tận cùng tại Hana Moon
+                    - Nơi làm mới làn da, làm tươi mới tâm hồn.</p>
+                <a href="booking.html"><button>Trải nghiệm ngay</button></a>
+            </div>
+            <div class="box-right">
+                <img src="assets/anh11.jpg" alt="">
+                <img src="assets/anh2.jpg" alt="">
+                <img src="assets/anh3.jpg" alt="">
+            </div>
+            <div class="to-bottom">
+                <a href="">
+                    <img src="assets/to_bottom.png" alt="">
+                </a>
+            </div>
+        </div>
+        <div id="wp-products">
+            <h2 id="services-section"><a href="dichvu.html">SẢN PHẨM</a></h2>
+            <ul id="list-products">
+                <div class="item">
+                    <img src="assets/serum1.jpg" alt="">
+                    <div class="stars">
+                        <span>
+                            <img src="assets/star.png" alt="">
+                        </span>
+                        <span>
+                            <img src="assets/star.png" alt="">
+                        </span>
+                        <span>
+                            <img src="assets/star.png" alt="">
+                        </span>
+                        <span>
+                            <img src="assets/star.png" alt="">
+                        </span>
+                        <span>
+                            <img src="assets/star.png" alt="">
+                        </span>
+                    </div>
+
+                    <div class="name">Obagi Daily Hydro-Drops Facial Serum</div>
+                    <div class="desc">Dưỡng ẩm</div>
+                    <div class="desc">Giảm thiểu nếp nhăn</div>
+                    <div class="price">$ 120.00</div>
+                    <div class="name"><a href="sanpham.html"><button type="button">Xem ngay</button></a></div>
+                </div>
+
+
+                <div class="item">
+                    <img src="assets/Laroche.jpg" alt="">
+                    <div class="stars">
+                        <span>
+                            <img src="assets/star.png" alt="">
+                        </span>
+                        <span>
+                            <img src="assets/star.png" alt="">
+                        </span>
+                        <span>
+                            <img src="assets/star.png" alt="">
+                        </span>
+                        <span>
+                            <img src="assets/star.png" alt="">
+                        </span>
+                        <span>
+                            <img src="assets/star.png" alt="">
+                        </span>
+                    </div>
+
+                    <div class="name">La Roche-Posay Cicaplast Balm B5 Soothing Multi-Purpose Balm</div>
+                    <div class="desc">Dưỡng ẩm cho da khô, da bị ứng</div>
+                    <div class="desc">Không gây mẫn cảm</div>
+                    <div class="price">$ 50.00</div>
+                    <div class="name"><a href="sanpham.html"><button type="button">Xem ngay</button></a></div>
+                </div>
+
+
+                <div class="item">
+                    <img src="assets/kemduong.jpg" alt="">
+                    <div class="stars">
+                        <span>
+                            <img src="assets/star.png" alt="">
+                        </span>
+                        <span>
+                            <img src="assets/star.png" alt="">
+                        </span>
+                        <span>
+                            <img src="assets/star.png" alt="">
+                        </span>
+                        <span>
+                            <img src="assets/star.png" alt="">
+                        </span>
+                        <span>
+                            <img src="assets/star.png" alt="">
+                        </span>
+                    </div>
+
+                    <div class="name">Kem Dưỡng Chuyên Sâu - Dành Cho Da Khô/ Lão Hóa 50g/1.7oz</div>
+                    <div class="desc">Được làm bằng thực vật chống viêm như cây rum</div>
+                    <div class="price">$ 100.00</div>
+                    <div class="name"><a href="sanpham.html"><button type="button">Xem ngay</button></a></div>
+                </div>
+                <div class="item">
+                    <img src="assets/eye.jpg" alt="">
+                    <div class="stars">
+                        <span>
+                            <img src="assets/star.png" alt="">
+                        </span>
+                        <span>
+                            <img src="assets/star.png" alt="">
+                        </span>
+                        <span>
+                            <img src="assets/star.png" alt="">
+                        </span>
+                        <span>
+                            <img src="assets/star.png" alt="">
+                        </span>
+                        <span>
+                            <img src="assets/star.png" alt="">
+                        </span>
+                    </div>
+
+                    <div class="name">SkinCeuticals AGE Advanced Eye 0.5 lf </div>
+                    <div class="desc">Giảm quầng thâm</div>
+                    <div class="desc">Giảm dấu hiệu lão hóa với peptide.</div>
+                    <div class="price">$ 149.00</div>
+                    <div class="name"><a href="sanpham.html"><button type="button">Xem ngay</button></a></div>
+                </div>
+            </ul>
+        </div>
+
+        <div id="saleoff">
+            <div class="box-left">
+                <h1>
+                    <span>KHÔNG GIAN SANG TRỌNG</span>
+                    <span>THƯ GIẢN</span>
+                </h1>
+            </div>
+            <div class="box-right"></div>
+        </div>
+
+        <div id="comment">
+            <h2>NHẬN XÉT CỦA KHÁCH HÀNG</h2>
+            <div id="comment-body">
+                <div class="prev">
+                    <a href="#">
+                        <img src="assets/prev.png" alt="">
+                    </a>
+                </div>
+                <ul id="list-comment">
+                    <li class="item">
+                        <div class="avatar">
+                            <img src="assets/avatar-3.png" alt="" width="10%" height="10%">
+
+                        </div>
+                        <div class="stars">
+                            <span>
+                                <img src="assets/star.png" alt="">
+                            </span>
+                            <span>
+                                <img src="assets/star.png" alt="">
+                            </span>
+                            <span>
+                                <img src="assets/star.png" alt="">
+                            </span>
+                            <span>
+                                <img src="assets/star.png" alt="">
+                            </span>
+                            <span>
+                                <img src="assets/star.png" alt="">
+                            </span>
+                        </div>
+                        <div class="name">Nguyễn Đình Vũ</div>
+
+                        <div class="text">
+                            <p>Pure Serenity không chỉ là nơi chăm sóc da,
+                                mà còn là nơi để tôi thư giãn và tái tạo năng lượng.
+                                Dịch vụ chuyên nghiệp và không gian yên tĩnh.</p>
+                        </div>
+                    </li>
+                    <li class="item">
+                        <div class="avatar">
+                            <img src="assets/avatar_1.png" alt="">
+
+                        </div>
+                        <div class="stars">
+                            <span>
+                                <img src="assets/star.png" alt="">
+                            </span>
+                            <span>
+                                <img src="assets/star.png" alt="">
+                            </span>
+                            <span>
+                                <img src="assets/star.png" alt="">
+                            </span>
+                            <span>
+                                <img src="assets/star.png" alt="">
+                            </span>
+                            <span>
+                                <img src="assets/star.png" alt="">
+                            </span>
+                        </div>
+                        <div class="name">Anni Nguyen</div>
+
+                        <div class="text">
+                            <p>Pure Serenity mang đến cho tôi trải nghiệm thư giãn tuyệt vời.
+                                Đội ngũ nhân viên chuyên nghiệp, không gian tốt,
+                                và các liệu pháp chăm sóc da tuyệt vời. Rất hài lòng!.</p>
+                        </div>
+                    </li>
+                    <li class="item">
+                        <div class="avatar">
+                            <img src="assets/avatar-2.png" alt="" width="10%" height="10%">
+
+                        </div>
+                        <div class="stars">
+                            <span>
+                                <img src="assets/star.png" alt="">
+                            </span>
+                            <span>
+                                <img src="assets/star.png" alt="">
+                            </span>
+                            <span>
+                                <img src="assets/star.png" alt="">
+                            </span>
+                            <span>
+                                <img src="assets/star.png" alt="">
+                            </span>
+                            <span>
+                                <img src="assets/star.png" alt="">
+                            </span>
+                        </div>
+                        <div class="name">Nguyễn Trần Vi</div>
+
+                        <div class="text">
+                            <p>Không gian ở Hana Moon rất ấm cúng và sạch sẽ.
+                                Đội ngũ nhân viên rất thân thiện
+                                và am hiểu về các liệu pháp chăm sóc da.
+                                Tôi hài lòng với dịch vụ của họ</p>
+                        </div>
+                    </li>
+                </ul>
+                <div class="next">
+                    <a href="#">
+                        <img src="assets/next.png" alt="">
+                    </a>
+                </div>
+            </div>
+            <div class="menu_fixed">
+                <ul>
+                    <li><a href="tel:+84 373487413"><img src="/assets/phone.png" alt=""></a></li>
+                    <li><a href="mailto:sangvan0373@gmail.vn"><img src="/assets/mail.png" alt="hana moon"></a>
+                    </li>
+                    <li><a href="booking.html" class="booking_popup_link"><img src="/assets/cal.png"
+                                alt="hana moon"><span>Đặt lịch ngay</span></a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="footer">
+            <div class="box">
+                <div class="logo">
+                    <img src="assets/logo3.png" alt="" width="200" height="60">
+                </div>
+                <p>Cung cấp sản phẩm với chất lượng an toàn cho quý khách</p>
+            </div>
+            <div class="box">
+                <h3>NỘI DUNG</h3>
+                <ul class="quick-menu">
+                    <div class="item">
+                        <a href="index.html">
+                            <img src="/assets/icon/house-icon.svg">
+                            Trang chủ
+                        </a>
+                    </div>
+                    <div class="item">
+                        <a href="dichvu.html">
+                            <img src="/assets/icon/spa-icon.svg">
+                            Dịch Vụ
+                        </a>
+                    </div>
+                    <div class="item">
+                        <a href="goics.html">
+                            <img src="/assets/icon/face-icon.svg">
+                            Gói Chăm Sóc
+                        </a>
+                    </div>
+                    <div class="item">
+                        <a href="booking.html">
+                            <img src="/assets/icon/date-icon.svg">
+                            Đặt Lịch
+                        </a>
+                    </div>
+                    <div class="item">
+                        <a href="contact.html">
+                            <img src="/assets/icon/lh-icon.svg">
+                            Liên hệ
+                        </a>
+                    </div>
+                </ul>
+            </div>
+            <div class="box">
+                <h3>LIÊN HỆ</h3>
+                <div class="box-item">
+                <p>
+                    <img src="/assets/icon/gps-icon.svg">
+                    <strong>Địa chỉ: </strong> 
+                    412 Nguyen Thi Minh Khai Str., FL14, Dist.3, HCMC, Viet Nam
+                </p>
+                <p>
+                    <img src="/assets/icon/phone-icon.svg">
+                    <strong>Phone: </strong>
+                    0373487413
+                </p>
+                <p>
+                    <img src="/assets/icon/email-icon.svg">
+                    <strong>Email: </strong>
+                    sangvan0373@gmail.com
+                </p>
+                </div>
+            </div>
+            <div class="box">
+                <h3>MẠNG XÃ HỘI</h3>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/hanamoonspa" target="_blank">
+                        <img src="assets/icon/facebook-icon.svg" alt="Facebook" >
+                    </a>
+                    <a href="https://www.youtube.com/@vansang62" target="_blank">
+                        <img src="assets/icon/youtube-icon.svg" alt="YouTube">
+                    </a>
+                    <a href="https://www.instagram.com/sangvan62" target="_blank">
+                        <img src="assets/icon/instagram.svg" alt="Instagram">
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+
+    <div id="scrollToTopBtn" onclick="scrollToTop()">
+        <img src="assets/cuonlen1.png" alt="Scroll to Top" width="20px" height="10px" >
+    </div>
+    <button id="scrollToTopBtn" title="Go to top">Top</button>
+    <script src="script.js"></script>
+    
+</body>
+</html>

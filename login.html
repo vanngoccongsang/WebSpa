@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="/CSS/style1.css">
+    <title>Đăng Nhập</title>
+</head>
+
+<body>
+    <div class="container" id="container">
+        <div class="form-container sign-up">
+            <form>
+                <h1>Create Account</h1>
+                <span>Enter the information below</span>
+                <input type="email" class="input-signup-username" laceholder="Email"  placeholder="UserName"/>
+                <input type="password" class="input-signup-password" placeholder="Password" />
+                <!-- <p id="capslock-warning">! Cáp Lock is on</p>  -->
+                <button type="submit" class="signup__signInButton">Đăng Ký</button>
+            </form>
+        </div>
+        <div class="form-container sign-in">
+            <form onsubmit="login(event)">
+                <h1>Sign In</h1>
+                <span>Enter your login name</span>
+                <input type="text" id="loginUsername" class="input-login-username" placeholder="UserName"/>
+                <input type="password" id="loginPassword" class="input-login-password" placeholder="Password" />
+                <a href="#">Forget Your Password?</a>
+                <button type="submit" class="login__signInButton">Đăng Nhập</button>
+                <a href="index.html">Go back to the main page</a>
+            </form>
+        </div>
+        <div class="toggle-container">
+            <div class="toggle">
+                <div class="toggle-panel toggle-left">
+                    <h1>Welcome Back!</h1>
+                    <p>Enter your personal details to use all of site features</p>
+                    <button class="hidden" id="login">Sign In</button>
+                </div>
+                <div class="toggle-panel toggle-right">
+                    <h1>Hello, Friend!</h1>
+                    <p>Register with your personal details to use all of site features</p>
+                    <button class="hidden" id="register">Sign Up</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script1.js"></script>
+    <script src="./main.js"></script>
+</body>
+</html>

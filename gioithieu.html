@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giới thiệu-Pure Serenity</title>
+    <link rel="stylesheet" href="/CSS/style.css">
+    <link rel="icon" href="assets/logo1.png" type="image/x-icon">
+    <link rel="shortcut icon" href="assets/logo1.png" type="image/x-icon">
+    <script defer src="index.js"></script>
+</head>
+
+<body>
+<!-- Messenger Plugin chat Code -->
+<div id="fb-root"></div>
+
+<!-- Your Plugin chat code -->
+<div id="fb-customer-chat" class="fb-customerchat">
+</div>
+
+<script>
+    var chatbox = document.getElementById('fb-customer-chat');
+    chatbox.setAttribute("page_id", "185247354669898");
+    chatbox.setAttribute("attribution", "biz_inbox");
+</script>
+
+<!-- Your SDK code -->
+<script>
+    window.fbAsyncInit = function () {
+        FB.init({
+            xfbml: true,
+            version: 'v18.0'
+        });
+    };
+
+    (function (d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = 'https://connect.facebook.net/vi_VN/sdk/xfbml.customerchat.js';
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+</script>
+
+
+    <div id="wrapper">
+        <div id="header">
+            <a href="index.html" class="logo">
+                <img src="assets/logo1.png" alt="" width="100%" height="50px">
+            </a>
+            <div id="menu">
+                <div class="item">
+                    <a href="index.html">Trang Chủ</a>
+                </div>
+                <div class="item">
+                    <a href="gioithieu.html">Giới Thiệu</a>
+                </div>
+                <div class="item" id="dichvu">
+                    <a href="">Dịch Vụ</a>
+                    <div class="submenu">
+                        <a href="sanpham.html">Sản Phẩm</a>
+                        <a href="/spaskin/goics.html">Gói Chăm Sóc</a>
+                    </div>
+                </div>
+                <div class="item">
+                    <a href="booking.html">Đặt lịch</a>
+                </div>
+                <div class="item">
+                    <a href="contact.html">Liên Hệ</a>
+                </div>
+            </div>
+            <div id="actions">
+                <div class="item">
+                    <a href="login.html">
+                        <img src="assets/user.svg" alt="">
+                    </a>
+                </div>
+                <div id="userGreeting"></div>
+                <div class="item">
+                    <a href="cart.html">
+                        <img src="assets/cart.svg" alt="">
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="menu_fixed">
+            <ul>
+                <li><a href="tel:+84 373487413"><img src="/assets/phone.png" alt=""></a></li>
+                <li><a href="mailto:sangvan0373@gmail.vn"><img src="/assets/mail.png" alt="hana moon"></a>
+                </li>
+                <li><a href="booking.html" class="booking_popup_link"><img src="/assets/cal.png"
+                            alt="hana moon"><span>Đặt lịch ngay</span></a></li>
+            </ul>
+        </div>
+
+        <div class="col-inner">
+            <h1 style="text-align: center;"><span
+                    style="font-family: 'Times New Roman', Times, serif; color:#000080;">HANAMOON - CHĂM SÓC SẮC ĐẸP
+                    VIỆT</span></h1>
+            <p>
+                Hana Moon với nhiều năm kinh nghiệm trong lĩnh vực chăm sóc sắc đẹp. 
+                Hana Moon đã không ngừng nâng cấp dịch vụ, không gian
+                và thiết bị nhằm đem đến những trải nghiệm tốt nhất cho khách hàng.&nbsp;
+            </p>
+            <p>Phục vụ hơn 1.000.000 khách hàng. Không ngừng mở rộng 
+                và phát triển để tối ưu trải nghiệm và hiệu quả cho khách</p>
+            <p>
+                <span style="font-weight: 400;">
+                    <span style="font-size: 120%; color:#000080;">
+                        <strong>HẾT SỨC - TẬN TÂM - ĐỒNG HÀNH</strong>
+                    </span>
+                    ". Là tiêu chí mà Hana Moon muốn hướng đến khách hàng"
+                </span>
+            </p>
+            <h2 style="text-align: center; color:#000080;">
+                <b>ĐỘI NGŨ NHÂN VIÊN CÓ CHUYÊN MÔN CAO</b>
+            </h2>
+            <img src="assets\nhanvien.jpg">
+            <h2 style="text-align: center; color:#000080;">
+                <b>TRANG THIẾT BỊ HIỆN ĐẠI</b>
+            </h2>
+            <div id="img-inner">
+                <span>
+                    <img src="assets/thietbi1.jpg" alt="">
+                </span>
+                <span>
+                    <img src="assets/thietbi2.jpg" alt="" width="60%" height="50%">
+                </span>
+                <span>
+                    <img src="assets/thietbi3.jpg" alt="">
+                </span>
+            </div>
+            <h2 style="text-align: center; color:#000080;">
+                <b>CƠ SỞ VẬT CHẤT HIỆN ĐẠI MANG TIÊU CHUẨN 5 SAO</b>
+            </h2>
+
+            <div id="img-inner">
+                
+                <div class="image-container">
+                    <img src="assets/csvc1.jpg" alt="">
+                </div>
+                <div class="image-container">
+                    <img src="assets/csvc2.jpg" alt="">
+                </div>
+                <div class="image-container">
+                    <img src="assets/csvc3.jpg" alt="">
+                </div>
+                <div class="image-container">
+                    <img src="assets/csvc4.jpg" alt="">
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-inner">
+            <p>
+                Tất cả giường tại Hana Moon được thiết kế độc lập,
+                kín đáo mang đến không gian riêng tư,
+                sự thoải mái nhất cho khách hàng khi đến trải nghiệm
+                các dịch vụ tại Hana Moon.
+            </p>
+            <p>
+                Hệ thống công nghệ luôn được trang bị đầy đủ
+                từ cơ bản cho đến nâng cao.
+                Đồng thời, luôn cập nhật và ứng dụng các công nghệ mới,
+                hiện đại hàng đầu thế giới vào các dịch vụ tại Spa.
+            </p>
+            <p>
+                Chuỗi phòng chờ tiện nghi chắc chắn sẽ làm khách hàng hài lòng.
+            </p>
+        </div>
+
+        <div id="footer">
+            <div class="box">
+                <div class="logo">
+                    <img src="assets/logo3.png" alt="" width="200" height="60">
+                </div>
+                <p>Cung cấp sản phẩm với chất lượng an toàn cho quý khách</p>
+            </div>
+            <div class="box">
+                <h3>NỘI DUNG</h3>
+                <ul class="quick-menu">
+                    <div class="item">
+                        <a href="index.html">
+                            <img src="/assets/icon/house-icon.svg">
+                            Trang chủ
+                        </a>
+                    </div>
+                    <div class="item">
+                        <a href="dichvu.html">
+                            <img src="/assets/icon/spa-icon.svg">
+                            Dịch Vụ
+                        </a>
+                    </div>
+                    <div class="item">
+                        <a href="goics.html">
+                            <img src="/assets/icon/face-icon.svg">
+                            Gói Chăm Sóc
+                        </a>
+                    </div>
+                    <div class="item">
+                        <a href="booking.html">
+                            <img src="/assets/icon/date-icon.svg">
+                            Đặt Lịch
+                        </a>
+                    </div>
+                    <div class="item">
+                        <a href="contact.html">
+                            <img src="/assets/icon/lh-icon.svg">
+                            Liên hệ
+                        </a>
+                    </div>
+                </ul>
+            </div>
+            <div class="box">
+                <h3>LIÊN HỆ</h3>
+                <div class="box-item">
+                <p>
+                    <img src="/assets/icon/gps-icon.svg">
+                    <strong>Địa chỉ: </strong> 
+                    412 Nguyen Thi Minh Khai Str., FL14, Dist.3, HCMC, Viet Nam
+                </p>
+                <p>
+                    <img src="/assets/icon/phone-icon.svg">
+                    <strong>Phone: </strong>
+                    0373487413
+                </p>
+                <p>
+                    <img src="/assets/icon/email-icon.svg">
+                    <strong>Email: </strong>
+                    sangvan0373@gmail.com
+                </p>
+                </div>
+            </div>
+            <div class="box">
+                <h3>MẠNG XÃ HỘI</h3>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/hanamoonspa" target="_blank">
+                        <img src="assets/icon/facebook-icon.svg" alt="Facebook" >
+                    </a>
+                    <a href="https://www.youtube.com/@vansang62" target="_blank">
+                        <img src="assets/icon/youtube-icon.svg" alt="YouTube">
+                    </a>
+                    <a href="https://www.instagram.com/sangvan62" target="_blank">
+                        <img src="assets/icon/instagram.svg" alt="Instagram">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+        
+    <div id="scrollToTopBtn" onclick="scrollToTop()">
+        <img src="assets/cuonlen.png" alt="Scroll to Top" width="20px" height="10px" >
+    </div>
+    <button id="scrollToTopBtn" title="Go to top">Top</button>
+    <script src="script.js"></script>
+</body>
+
+</html>

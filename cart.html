@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Giỏ Hàng</title>
+  <link rel="stylesheet" href="/CSS/style.css">
+  <style>
+    .container {
+      font-family: 'Arial', sans-serif;
+      background-color: #e5b8eb42;
+      text-align: center;
+      color: #333;
+      background-image: url('/assets/bgcart.gif');
+      background-size: cover;
+      background-position: center;
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    h1 {
+      color: #ff4901;
+      font-size: 2em;
+    }
+
+    #cart-items {
+      list-style: none;
+      padding: 0;
+    }
+
+    .cart-item {
+      background-color: #ffffff;
+      border: 5px solid #ff7300;
+      border-radius: 60px 0;
+      margin: 0 4% 10px 4%;
+      padding: 15px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .cart-item-info {
+      flex: 1;
+      text-align: left;
+    }
+
+    .cart-actions {
+      margin-left: 20px;
+    }
+
+    #cart-summary {
+      margin-top: 20px;
+      padding: 10px;
+      background-color: #ff5304bd;
+      color: #fff;
+      border-radius: 20px 0;
+    }
+
+    #total-price {
+      font-weight: bold;
+      font-size: 1.2em;
+    }
+
+    button {
+      margin: 0 auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 167px;
+      height: 46px;
+      border-radius: 60px 0;
+      border: 1px solid #8D388A;
+      margin-top: 40px;
+      transition: all 0.2s ease-in-out;
+      z-index: 3;
+      color: #000000;
+    }
+
+    button:hover {
+
+      background-color: #ff13f391;
+    }
+
+    a {
+      color: hsl(0, 0%, 93%);
+      text-decoration: none;
+      display: block;
+      margin-top: 20px;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="wrapper">
+    <div id="header">
+      <a href="index.html" class="logo">
+        <img src="assets/logo1.png" alt="" width="100%" height="50px">
+      </a>
+      <div id="menu">
+        <div class="item">
+          <a href="index.html">Trang Chủ</a>
+        </div>
+        <div class="item">
+          <a href="gioithieu.html">Giới Thiệu</a>
+        </div>
+        <div class="item" id="dichvu">
+          <a href="">Dịch Vụ</a>
+          <div class="submenu">
+            <a href="sanpham.html">Sản Phẩm</a>
+            <a href="/spaskin/goics.html">Gói Chăm Sóc</a>
+          </div>
+        </div>
+        <div class="item">
+          <a href="booking.html">Đặt lịch</a>
+        </div>
+        <div class="item">
+          <a href="contact.html">Liên Hệ</a>
+        </div>
+        <div id="item">
+          <a href="admin.html">ADMIN</a>
+        </div>
+      </div>
+      <div id="actions">
+        <div class="item">
+          <a href="login.html">
+            <img src="assets/user.svg" alt="">
+          </a>
+        </div>
+        <div id="userGreeting"></div>
+        <div class="item">
+          <a href="cart.html">
+            <img src="assets/cart.svg" alt="">
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <h1>Giỏ Hàng</h1>
+
+      <ul id="cart-items"></ul>
+
+      <div id="cart-summary">
+        <strong>Tổng tiền:</strong> $<span id="total-price">0.00</span>
+      </div>
+
+      <button onclick="checkout()">Thanh toán</button>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      displayCartItems();
+    });
+
+    function displayCartItems() {
+      const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+
+      const cartList = document.getElementById('cart-items');
+      cartList.innerHTML = '';
+
+      let totalPrice = 0;
+
+      cartItems.forEach(item => {
+        const cartItem = document.createElement('li');
+        cartItem.className = 'cart-item';
+        cartItem.innerHTML = `
+          <div class="cart-item-info">
+            <strong>${item.name}</strong><br>
+            Giá: $${item.price.toFixed(2)}<br>
+            Số lượng: ${item.quantity}
+          </div>
+          <div class="cart-actions">
+            <button onclick="removeFromCart(${item.id})">Xóa</button>
+          </div>
+        `;
+        cartList.appendChild(cartItem);
+
+        // Tính tổng tiền
+        totalPrice += item.price * item.quantity;
+      });
+
+      // Hiển thị tổng tiền
+      const totalPriceElement = document.getElementById('total-price');
+      totalPriceElement.textContent = totalPrice.toFixed(2);
+    }
+
+    function removeFromCart(productId) {
+      const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+      const updatedCart = cartItems.filter(item => item.id !== productId);
+      localStorage.setItem('cart', JSON.stringify(updatedCart));
+      displayCartItems();
+    }
+
+    function checkout() {
+      const username = localStorage.getItem('username');
+      if (username) {
+        const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+        const totalPrice = parseFloat(document.getElementById('total-price').textContent);
+
+        // Gửi đơn hàng đến JSON server
+        fetch('http://localhost:3000/orders', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            customerName: username,
+            items: cartItems,
+            totalPrice: totalPrice,
+          }),
+        })
+          .then(response => response.json())
+          .then(data => {
+            alert('Quý khách vui lòng đến Spa để nhận hàng và thanh toán! Đơn hàng của bạn đã được xử lý.');
+            localStorage.removeItem('cart');
+            displayCartItems();
+          })
+          .catch(error => console.error('Error processing order:', error));
+      } else {
+        alert('Vui lòng đăng nhập trước khi thanh toán!');
+      }
+    }
+  </script>
+
+</body>
+
+</html>

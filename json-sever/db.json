@@ -1,0 +1,304 @@
+{
+  "user": [
+    {
+      "id": 1,
+      "username": "sangvan",
+      "password": "123"
+    },
+    {
+      "username": "tnmt",
+      "password": "thuchanh",
+      "id": 4
+    },
+    {
+      "username": "admin",
+      "password": "123",
+      "role": "admin",
+      "id": 6
+    },
+    {
+      "username": "sangvan1",
+      "password": "123",
+      "id": 7
+    },
+    {
+      "username": "honglien",
+      "password": "123",
+      "id": 7
+    },
+    {
+      "username": "sang1",
+      "password": "123",
+      "id": 9
+    }
+  ],
+  "bookings": [
+    {
+      "fullName": "Sang Văn",
+      "email": "nhokcattoc@gmail.com",
+      "phone": "0373487413",
+      "service": "massage",
+      "date": "2023-12-15",
+      "time": "09:45",
+      "userId": "3",
+      "id": 18
+    },
+    {
+      "fullName": "Sang Văn",
+      "email": "nhokcattoc@gmail.com",
+      "phone": "0373487413",
+      "service": "VIP",
+      "date": "2024-01-28",
+      "time": "13:55",
+      "userId": "3",
+      "id": 19
+    }
+  ],
+  "products": [
+    {
+      "image": "assets/sp3.jpg",
+      "name": "test san pham 3",
+      "description": "sang pha m3",
+      "price": 123,
+      "quantity": 4000,
+      "id": 20
+    },
+    {
+      "image": "assets/sp3.jpg",
+      "name": "test san pham 3",
+      "description": "sang pha m3",
+      "price": 123,
+      "quantity": 9,
+      "id": 21
+    },
+    {
+      "image": "assets/sp3.jpg",
+      "name": "test san pham 3",
+      "description": "sang pha m3",
+      "price": 123,
+      "quantity": 9,
+      "id": 22
+    },
+    {
+      "image": "assets/sp3.jpg",
+      "name": "test san pham 3",
+      "description": "sang pha m3",
+      "price": 123,
+      "quantity": 1000,
+      "id": 23
+    },
+    {
+      "image": "assets/sp3.jpg",
+      "name": "test san pham 3",
+      "description": "sang pha m3",
+      "price": 123,
+      "quantity": 1000,
+      "id": 23
+    },
+    {
+      "image": "assets/sp3.jpg",
+      "name": "test san pham 3",
+      "description": "sang pha m3",
+      "price": 123,
+      "quantity": 1000,
+      "id": 23
+    },
+    {
+      "image": "assets/sp3.jpg",
+      "name": "test san pham 3",
+      "description": "sang pha m3",
+      "price": 123,
+      "quantity": 1000,
+      "id": 24
+    }
+  ],
+  "orders": [
+    {
+      "customerName": "sangvan",
+      "items": [
+        {
+          "id": 17,
+          "name": "Mặt nạ tơ tằm",
+          "price": 30,
+          "quantity": 5
+        },
+        {
+          "id": 18,
+          "name": "Muối ăn: có nhiều khoáng chất tốt cho sức khỏe",
+          "price": 20,
+          "quantity": 1
+        },
+        {
+          "name": "Liệu pháp da trắng rạng rỡ với Vitamin C (75 phút)",
+          "price": 60,
+          "quantity": 1
+        }
+      ],
+      "totalPrice": 230,
+      "id": 3
+    },
+    {
+      "customerName": "admin",
+      "items": [
+        {
+          "id": 21,
+          "name": "Kén Tằm Massage Vàng",
+          "price": 10
+        },
+        {
+          "id": 19,
+          "name": "Muối tăm: tẩy tế bào chết và làm sạch mịn da",
+          "price": 10
+        }
+      ],
+      "totalPrice": 10,
+      "id": 11
+    },
+    {
+      "customerName": "admin",
+      "items": [
+        {
+          "id": 19,
+          "name": "Muối tăm: tẩy tế bào chết và làm sạch mịn da",
+          "price": 10
+        },
+        {
+          "id": 21,
+          "name": "Kén Tằm Massage Vàng",
+          "price": 10
+        }
+      ],
+      "totalPrice": 10,
+      "id": 13
+    },
+    {
+      "customerName": "admin",
+      "items": [
+        {
+          "id": 19,
+          "name": "Muối tăm: tẩy tế bào chết và làm sạch mịn da",
+          "price": 10,
+          "quantity": 12
+        }
+      ],
+      "totalPrice": 120,
+      "id": 14
+    },
+    {
+      "customerName": "admin",
+      "items": [
+        {
+          "id": 23,
+          "name": "123",
+          "price": 123,
+          "quantity": 1
+        }
+      ],
+      "totalPrice": 123,
+      "id": 15
+    },
+    {
+      "customerName": "admin",
+      "items": [
+        {
+          "id": 25,
+          "name": "san pham test",
+          "price": 12,
+          "quantity": 1
+        }
+      ],
+      "totalPrice": 12,
+      "id": 16
+    },
+    {
+      "customerName": "admin",
+      "items": [
+        {
+          "id": 25,
+          "name": "san pham test",
+          "price": 12,
+          "quantity": 12
+        }
+      ],
+      "totalPrice": 144,
+      "id": 17
+    },
+    {
+      "customerName": "admin",
+      "items": [
+        {
+          "id": 25,
+          "name": "san pham test",
+          "price": 12,
+          "quantity": 1111
+        }
+      ],
+      "totalPrice": 13332,
+      "id": 18
+    },
+    {
+      "customerName": "admin",
+      "items": [
+        {
+          "id": 25,
+          "name": "san pham test",
+          "price": 12,
+          "quantity": 111235
+        }
+      ],
+      "totalPrice": 1334820,
+      "id": 19
+    },
+    {
+      "customerName": "admin",
+      "items": [
+        {
+          "id": 25,
+          "price": 12,
+          "quantity": 1244
+        }
+      ],
+      "totalPrice": 14928,
+      "id": 20
+    },
+    {
+      "customerName": "admin",
+      "items": [
+        {
+          "id": 20,
+          "name": "test san pham 3",
+          "price": 123,
+          "quantity": 1
+        }
+      ],
+      "totalPrice": 123,
+      "id": 24
+    },
+    {
+      "customerName": "admin",
+      "items": [
+        {
+          "id": 20,
+          "name": "test san pham 3",
+          "price": 123,
+          "quantity": 1232
+        }
+      ],
+      "totalPrice": 151536,
+      "id": 25
+    },
+    {
+      "customerName": "admin",
+      "items": [
+        {
+          "id": 20,
+          "name": "test san pham 3",
+          "price": 123,
+          "quantity": 1
+        }
+      ],
+      "totalPrice": 123,
+      "id": 31
+    }
+  ]
+}

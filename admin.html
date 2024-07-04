@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản lý HanaMoon</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #e7d7e5;
+            text-align: center;
+            margin: 50px;
+        }
+
+        header {
+            background-color: #000080;
+            color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            border-radius: 20px 0 20px;
+
+        }
+
+        h1 {
+            color: #fff;
+            margin: 0;
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+        }
+
+        .booking,
+        .orders {
+            border-radius: 20px;
+            padding: 20px;
+            color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .booking {
+            background-color: #000080;
+            max-width: 300px;
+        }
+
+        .orders {
+            background-color: #000080;
+            width: calc(50% - 300px);
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        ul li {
+            margin-bottom: 10px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #fff;
+            color: #333;
+        }
+
+        button {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 167px;
+            height: 46px;
+            border-radius: 23px 0;
+            border: 1px solid #8D388A;
+            margin-top: 40px;
+            transition: all 0.2s ease-in-out;
+            z-index: 3;
+            color: #000000;
+            margin: 0 auto;
+        }
+
+        button:hover {
+            background-color: #8d388a8c;
+        }
+
+        #menu h3 {
+
+            color: #ffffff;
+            font-family: "Lora-Bold";
+            font-size: 18px;
+            font-weight: normal;
+            text-align: left;
+            font-style: normal;
+            letter-spacing: 0.13px;
+            line-height: normal;
+            border-radius: 40px 0 0;
+            background-color: #000080;
+            position: relative;
+            padding: 19px 0 19px 20%;
+            margin: 0;
+        }
+
+        #menu {
+            position: fixed;
+            padding: 10px;
+            border-radius: 0 0 10px 0;
+        }
+
+        #menu ul {
+            list-style: none;
+            margin: 0;
+            padding: 0 35px 40px 35px;
+            box-shadow: 0 0 62px rgba(0, 0, 0, 0.1);
+            background-color: #f9f9f9;
+            border-bottom-right-radius: 40px;
+        }
+
+        #menu li {
+            margin-right: 15px;
+            border-radius: 20px 0 20px;
+        }
+
+        #menu a {
+            text-decoration: none;
+            color: #ff00ff;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        #booking-container,
+        #orders-container,
+        #addsp-container,
+        #editsp-container {
+            display: none;
+        }
+
+        #add-product-form {
+            max-width: 100%;
+            margin: 20px auto;
+            padding: 20px;
+
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        #add-product-form label,
+        #add-product-form textarea,
+        #add-product-form input {
+            display: block;
+            margin: 10px 0;
+            width: 100%;
+        }
+
+        #add-product-form button {
+            background-color: #ca8fcf;
+            color: #ffffff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 20px 0;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        #add-product-form button:hover {
+            background-color: #600080;
+        }
+
+        #product-list {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            flex-direction: column;
+            /* Thêm dòng này để hiển thị dạng cột */
+        }
+
+        #product-list li {
+            box-sizing: border-box;
+            width: 100%;
+            /* Thay đổi chiều rộng thành 100% để hiển thị mỗi phần tử theo chiều rộng đầy đủ của container */
+            margin: 20px 0;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        #product-list img {
+            width: 100%;
+            height: auto;
+            border-radius: 4px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="trungtam">
+
+
+        <a href="index.html" class="logo">
+            <img src="assets/logo1.png" alt="" width="18%" height="50px">
+            <P>QUAY LẠI TRANG CHỦ</P>
+        </a>
+        <header>
+            <h1>QUẢN LÝ</h1>
+        </header>
+        <!-- Menu -->
+        <div id="menu">
+            <h3>Danh sách các chức năng</h3>
+            <ul>
+                <li><a onclick="toggleInformation('booking-container')">Thông tin đặt lịch</a></li>
+                <li><a onclick="toggleInformation('orders-container')">Thông tin thanh toán</a></li>
+                <li><a onclick="toggleInformation('addsp-container')">Thêm sản phẩm</a></li>
+                <li><a onclick="toggleInformation('editsp-container')">Xóa sửa sản phẩm</a></li>
+                <li><a href="/warehouse/warehouse.html">Quản lí kho </a></li>
+            </ul>
+        </div>
+
+        <div class="container" id="booking-container">
+            <div class="booking">
+                <h2>THÔNG TIN ĐẶT LỊCH</h2>
+                <ul id="booking-list"></ul>
+            </div>
+        </div>
+
+        <div class="container" id="orders-container">
+            <div class="orders">
+                <h2>THÔNG TIN THANH TOÁN</h2>
+                <ul id="orders-list"></ul>
+            </div>
+        </div>
+
+        <div class="container" id="addsp-container">
+            <div class="orders">
+                <h2>THÊM MỚI SẢN PHẨM</h2>
+                <form id="add-product-form" enctype="multipart/form-data">
+                    <input type="text" id="product-name" required placeholder="Tên sản phẩm">
+                    <label for="product-image">Hình ảnh:</label>
+                    <input type="file" id="product-image" accept="image/*" required>
+                    <textarea id="product-description" required placeholder="Mô tả sản phẩm"></textarea>
+                    <input type="number" id="product-price" step="0.01" required placeholder="Giá">
+                    <input type="number" id="product-quantity" step="0.01" required placeholder="Số lượng hàng">
+                    <button type="button" id="add-product-button">Thêm</button>
+                </form>
+                <label for="product-select">Chọn sản phẩm:</label>
+                <select id="product-select">
+                    <!-- Tùy chọn sản phẩm sẽ được thêm tự động từ JavaScript -->
+                </select>
+            </div>
+        </div>
+        <div class="container" id="editsp-container">
+            <div class="orders">
+                <h2>Xóa sửa sản phẩm</h2>
+                <ul id="product-list"></ul>
+                <button id="load-more-button">Xem thêm</button>
+            </div>
+        </div>
+    </div>
+    <ul id="product-list"></ul>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            displayBookingInformation();
+            displayOrdersInformation();
+        });
+        function toggleInformation(containerId) {
+            var container = document.getElementById(containerId);
+            var isContainerVisible = window.getComputedStyle(container).display !== 'none';
+
+            if (isContainerVisible) {
+                container.style.display = 'none';
+            } else {
+                container.style.display = 'flex';
+            }
+        }
+
+        function showBookingInformation() {
+            document.getElementById('booking-container').style.display = 'flex';
+            document.getElementById('orders-container').style.display = 'none';
+        }
+
+        function showOrdersInformation() {
+            document.getElementById('booking-container').style.display = 'none';
+            document.getElementById('orders-container').style.display = 'flex';
+        }
+
+        function toggleOrdersList() {
+            var ordersList = document.getElementById('orders-list');
+            ordersList.classList.toggle('hidden');
+        }
+
+        function confirmAndDelete(bookingId) {
+            const confirmation = confirm("Xác nhận khách đã sử dụng xong dịch vụ!");
+
+            if (confirmation) {
+                fetch(`http://localhost:3000/bookings/${bookingId}`, {
+                    method: 'DELETE'
+                })
+                    .then(response => response.json())
+                    .then(data => {
+                        location.reload();
+                    })
+                    .catch(error => console.error('Error deleting data:', error));
+            }
+        }
+
+        function confirmAndDeleteOrder(orderId) {
+            const confirmation = confirm("Xác nhận khách hàng đã thanh toán");
+
+            if (confirmation) {
+                fetch(`http://localhost:3000/orders/${orderId}`, {
+                    method: 'DELETE'
+                })
+                    .then(response => response.json())
+                    .then(data => {
+                        location.reload();
+                    })
+                    .catch(error => console.error('Error deleting order data:', error));
+            }
+        }
+
+        function displayBookingInformation() {
+            fetch('http://localhost:3000/bookings')
+                .then(response => response.json())
+                .then(bookings => {
+                    const bookingList = document.getElementById('booking-list');
+
+                    bookings.forEach(booking => {
+                        const listItem = document.createElement('li');
+                        listItem.innerHTML = `
+                    <strong>Tên khách hàng: ${booking.fullName}</strong><br>
+                    Email: ${booking.email}<br>
+                    Phone: ${booking.phone}<br>
+                    Dịch vụ: ${booking.service}<br>
+                    Ngày: ${booking.date}<br>
+                    Thời gian: ${booking.time}<br>
+                    <button onclick="confirmAndDelete(${booking.id})">Xác Nhận</button>
+                `;
+                        bookingList.appendChild(listItem);
+                    });
+                })
+                .catch(error => console.error('Error fetching booking data:', error));
+        }
+
+        function displayOrdersInformation() {
+            fetch('http://localhost:3000/orders')
+                .then(response => response.json())
+                .then(orders => {
+                    const ordersList = document.getElementById('orders-list');
+
+                    orders.forEach(order => {
+                        const listItem = document.createElement('li');
+                        listItem.innerHTML = `
+                    <strong>Tên khách hàng: ${order.customerName}</strong><br>
+                    Tổng tiền: $${order.totalPrice.toFixed(2)}<br>
+                    <ul>
+                        ${order.items.map(item => `
+                            <li>${item.name} - Giá: $${item.price.toFixed(2)}, Số lượng: ${item.quantity}</li>
+                        `).join('')}
+                    </ul>
+                    <button onclick="confirmAndDeleteOrder(${order.id})">Xác Nhận đã thanh toán</button>
+                `;
+                        ordersList.appendChild(listItem);
+                    });
+                })
+                .catch(error => console.error('Error fetching orders data:', error));
+        }
+
+        //thêm sản phẩm
+        const productList = document.getElementById('product-list');
+        const addProductForm = document.getElementById('add-product-form');
+        const addProductButton = document.getElementById('add-product-button');
+        const loadMoreButton = document.getElementById('load-more-button');
+
+        let displayedProducts = 0;
+        const productsToShowEachTime = 3;
+
+        function displayProducts() {
+            fetch('http://localhost:3000/products')
+                .then(response => response.json())
+                .then(products => {
+                    const productsToDisplay = products.slice(displayedProducts, displayedProducts + productsToShowEachTime);
+
+                    if (productsToDisplay.length === 0) {
+                        // Không còn sản phẩm để hiển thị, ẩn nút "Xem thêm"
+                        loadMoreButton.style.display = 'none';
+                        return;
+                    }
+
+                    productsToDisplay.forEach(product => {
+                        const listItem = document.createElement('li');
+                        listItem.innerHTML = `
+                        <div class="product-container">
+        <img src="${product.image}" alt="${product.name}" style="max-width: 200em;"><br>
+        <strong>${product.name}</strong><br>
+        <div class="product-info">
+            Mô tả sản phẩm: ${product.description}<br>
+            Giá: $${product.price.toFixed(2)}<br>
+        </div>
+        <div class="product-actions">
+            <button data-action="edit" data-product-id="${product.id}" onclick="editProduct(${product.id})">Sửa</button>
+            <button data-action="delete" data-product-id="${product.id}" onclick="deleteProduct(${product.id})">Xóa</button>
+        </div>
+    </div>
+              `;
+                        productList.appendChild(listItem);
+                    });
+
+                    displayedProducts += productsToShowEachTime;
+                })
+                .catch(error => console.error('Error fetching data:', error));
+        }
+
+        function addProduct() {
+
+            const productImageInput = document.getElementById('product-image');
+            const productName = document.getElementById('product-name').value;
+            const productDescription = document.getElementById('product-description').value;
+            const productPrice = parseFloat(document.getElementById('product-price').value);
+            const productQuantity = parseFloat(document.getElementById('product-quantity').value);
+
+            if (!productName || !productImageInput.files.length || !productDescription || isNaN(productPrice) || isNaN(productQuantity)) {
+                alert('Vui lòng nhập đầy đủ thông tin sản phẩm.');
+                return;
+            }
+
+            const productImage = `assets/${productImageInput.files[0].name}`;
+
+            fetch('http://localhost:3000/products', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+
+                    image: productImage,
+                    name: productName,
+                    description: productDescription,
+                    price: productPrice,
+                    quantity: productQuantity,
+                }),
+            })
+                .then(() => {
+                    displayProducts();
+                    addProductForm.reset();
+                })
+                .catch(error => console.error('Error adding product:', error));
+
+        }
+
+
+        function deleteProduct(productId) {
+            fetch(`http://localhost:3000/products/${productId}`, {
+                method: 'DELETE',
+            })
+                .then(() => displayProducts())
+                .catch(error => console.error('Error deleting product:', error));
+        }
+
+        function editProduct(productId) {
+            const newName = prompt('Nhập tên mới:');
+            const newDescription = prompt('Nhập mô tả mới:');
+            const newPrice = parseFloat(prompt('Nhập giá mới:'));
+
+            fetch(`http://localhost:3000/products/${productId}`, {
+                method: 'PATCH',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    name: newName,
+                    description: newDescription,
+                    price: newPrice,
+                }),
+            })
+                .then(() => displayProducts())
+                .catch(error => console.error('Error updating product:', error));
+        }
+
+        const username = localStorage.getItem('username');
+
+        // Gán sự kiện click cho nút thêm sản phẩm
+        addProductButton.addEventListener('click', addProduct);
+
+        // Gán sự kiện click cho nút "Xem thêm"
+        loadMoreButton.addEventListener('click', displayProducts);
+
+        displayProducts();
+    </script>
+</body>
+
+</html>

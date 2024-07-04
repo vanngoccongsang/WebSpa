@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spa Booking</title>
+    <link rel="icon" href="assets/logo1.png" type="image/x-icon">
+    <link rel="shortcut icon" href="assets/logo1.png" type="image/x-icon">
+    <link rel="stylesheet" href="/CSS/style.css">
+    <style>
+        h2 {
+            margin-bottom: 20px;
+            color: #000080;
+            align-items: center;
+            margin-top: 20px;
+            text-align: center;
+            /* Thêm margin-top để tạo khoảng cách với header */
+            justify-content: center;
+        }
+
+        form {
+            max-width: 300px;
+            margin: 0 auto;
+            background-color: #fff6f6;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333333;
+        }
+
+        input,
+        select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #000080;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        button {
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 167px;
+            height: 46px;
+            border-radius: 23px 0;
+            border: 1px solid #8D388A;
+            margin-top: 40px;
+            transition: all 0.2s ease-in-out;
+            z-index: 3;
+            color: #000000;
+        }
+
+        button:hover {
+            background-color: #a5a5d4;
+        }
+
+        a {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Messenger Plugin chat Code -->
+    <div id="fb-root"></div>
+
+    <!-- Your Plugin chat code -->
+    <div id="fb-customer-chat" class="fb-customerchat">
+    </div>
+
+    <script>
+        var chatbox = document.getElementById('fb-customer-chat');
+        chatbox.setAttribute("page_id", "185247354669898");
+        chatbox.setAttribute("attribution", "biz_inbox");
+    </script>
+
+    <!-- Your SDK code -->
+    <script>
+        window.fbAsyncInit = function () {
+            FB.init({
+                xfbml: true,
+                version: 'v18.0'
+            });
+        };
+
+        (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = 'https://connect.facebook.net/vi_VN/sdk/xfbml.customerchat.js';
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
+
+    <div id="wrapper">
+        <div id="header">
+            <a href="index.html" class="logo">
+                <img src="assets/logo1.png" alt="" width="100%" height="50px">
+            </a>
+            <div id="menu">
+                <div class="item">
+                    <a href="index.html">Trang Chủ</a>
+                </div>
+                <div class="item">
+                    <a href="gioithieu.html">Giới Thiệu</a>
+                </div>
+                <div class="item" id="dichvu">
+                    <a href="">Dịch Vụ</a>
+                    <div class="submenu">
+                        <a href="sanpham.html">Sản Phẩm</a>
+                        <a href="/spaskin/goics.html">Gói Chăm Sóc</a>
+                    </div>
+                </div>
+                <div class="item">
+                    <a href="booking.html">Đặt lịch</a>
+                </div>
+                <div class="item">
+                    <a href="contact.html">Liên Hệ</a>
+                </div>
+            </div>
+            <div id="actions">
+                <div class="item">
+                    <a href="login.html">
+                        <img src="assets/user.svg" alt="">
+                    </a>
+                </div>
+                <div id="userGreeting"></div>
+                <div class="item">
+                    <a href="cart.html">
+                        <img src="assets/cart.svg" alt="">
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div id="banner_gr" class="banner_gr section">
+            <div class="banner_def"></div>
+            <img src="/assets/bglienhe.jpg" alt="">
+        </div>
+
+        <div id="tieude">
+            <h2>ĐẶT LỊCH NGAY</h2>
+        </div>
+        <form id="bookingForm">
+            <input type="text" id="fullName" name="fullName" required placeholder="Họ Và Tên">
+
+            <input type="email" id="email" name="email" required placeholder="Email">
+
+            <input type="tel" id="phone" name="phone" required placeholder="Số điện thoại">
+
+            <select id="service" name="service" required>
+                <option value="Cham_soc_da_mat_co_ban">Chăm sóc da mặt cơ bản</option>
+                <option value="Cham_soc_da_mat">Chăm sóc da mặt</option>
+                <option value="VIP">Dịch Vụ VIP</option>
+            </select>
+
+            <input type="date" id="date" name="date" required>
+
+            <input type="time" id="time" name="time" required>
+
+            <button type="button" onclick="submitForm()">Đặt ngay</button>
+        </form>
+
+        <div class="menu_fixed">
+            <ul>
+                <li><a href="tel:+84 373487413"><img src="/assets/phone.png" alt=""></a></li>
+                <li><a href="mailto:sangvan0373@gmail.vn"><img src="/assets/mail.png" alt="hana moon"></a>
+                </li>
+                <li><a href="booking.html" class="booking_popup_link"><img src="/assets/cal.png"
+                            alt="hana moon"><span>Đặt lịch ngay</span></a></li>
+            </ul>
+        </div>
+
+        <div id="footer">
+            <div class="box">
+                <div class="logo">
+                    <img src="assets/logo3.png" alt="" width="200" height="60">
+                </div>
+                <p>Cung cấp sản phẩm với chất lượng an toàn cho quý khách</p>
+            </div>
+            <div class="box">
+                <h3>NỘI DUNG</h3>
+                <ul class="quick-menu">
+                    <div class="item">
+                        <a href="index.html">Trang chủ</a>
+                    </div>
+                    <div class="item">
+                        <a href="dichvu.html">Dịch Vụ</a>
+                    </div>
+                    <div class="item">
+                        <a href="goics.html">Gói Chăm Sóc</a>
+                    </div>
+                    <div class="item">
+                        <a href="booking.html">Đặt Lịch</a>
+                    </div>
+                    <div class="item">
+                        <a href="contact.html">Liên hệ</a>
+                    </div>
+                </ul>
+            </div>
+            <div class="box">
+                <h3>LIÊN HỆ</h3>
+                <div class="box-item">
+                    <p>
+                        <img src="/assets/icon/gps-icon.svg">
+                        <strong>Địa chỉ: </strong>
+                        412 Nguyen Thi Minh Khai Str., FL14, Dist.3, HCMC, Viet Nam
+                    </p>
+                    <p>
+                        <img src="/assets/icon/phone-icon.svg">
+                        <strong>Phone: </strong>
+                        0373487413
+                    </p>
+                    <p>
+                        <img src="/assets/icon/email-icon.svg">
+                        <strong>Email: </strong>
+                        sangvan0373@gmail.com
+                    </p>
+                </div>
+            </div>
+            <div class="box">
+                <h3>MẠNG XÃ HỘI</h3>
+                <div class="social-icons">
+                    <a href="facebook.com/hanamoonspa" target="_blank">
+                        <img src="/assets/icon/facebook-icon.svg" alt="Facebook" width="30px" height="30px">
+                    </a>
+                    <a href="https://www.youtube.com/@vansang62" target="_blank">
+                        <img src="assets/icon/youtube-icon.svg" alt="YouTube" width="30px" height="30px">
+                    </a>
+                    <a href="https://www.instagram.com/sangvan62" target="_blank">
+                        <img src="assets/icon/instagram.svg" alt="Instagram" width="30px" height="30px">
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            function submitForm() {
+                var fullName = document.getElementById("fullName").value;
+                var email = document.getElementById("email").value;
+                var phone = document.getElementById("phone").value;
+                var service = document.getElementById("service").value;
+                var date = document.getElementById("date").value;
+                var time = document.getElementById("time").value;
+
+                var bookingData = {
+                    fullName: fullName,
+                    email: email,
+                    phone: phone,
+                    service: service,
+                    date: date,
+                    time: time
+                };
+
+                // Gửi dữ liệu đặt lịch đến JSON Server
+                fetch('http://localhost:3000/user/3/bookings', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(bookingData)
+                })
+                    .then(response => response.json())
+                    .then(data => {
+                        console.log('Success:', data);
+                        alert('Booking successful!');
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                        alert('Booking failed. Please try again.');
+                    });
+            }
+        </script>
+    </div>
+</body>
+
+</html>

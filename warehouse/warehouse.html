@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản lí kho</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #e7d7e5;
+            text-align: center;
+            margin: 50px;
+        }
+
+        header {
+            background-color: #000080;
+            color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            border-radius: 20px 0 20px;
+
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .column {
+            flex: 1;
+            margin: 0 10px;
+        }
+
+        h1 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: #ffffff;
+        }
+
+        h2 {
+            font-size: 24px;
+            margin-top: 30px;
+            color: #2f0ab6;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 15px auto;
+            width: fit-content;
+        }
+
+        ul li {
+            margin-bottom: 10px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #fff;
+            color: #333;
+        }
+
+        form {
+            background-color: #fff6f6;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+            color: #555;
+        }
+
+        select,
+        input[type="number"],
+        button {
+            width: 100%;
+            height: 40px;
+            border-radius: 10px 0;
+            border: 1px solid #8D388A;
+            margin-top: 10px;
+            transition: all 0.2s ease-in-out;
+            color: #000000;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .warning {
+            color: #ff4d4d;
+            font-size: 14px;
+        }
+
+        @media screen and (max-width: 600px) {
+            .container {
+                flex-direction: column;
+            }
+
+            .column {
+                margin: 10px 0;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+
+            h2 {
+                font-size: 20px;
+            }
+        }
+
+        .sold-out {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <a href="/index.html" class="logo">
+        <img src="/assets/logo1.png" alt="" width="18%" height="50px">
+    </a>
+    <header>
+        <h1>QUẢN LÝ KHO</h1>
+    </header>
+
+    <a href="/admin.html">quay lại trang admin</a>
+
+    <div class="container">
+        <div class="column">
+            <h2>Danh sách sản phẩm</h2>
+            <ul id="productList"></ul>
+        </div>
+
+        <div class="column">
+            <div class="quantity-container">
+                <h2>Nhập Sản Phẩm</h2>
+                <form id="increaseForm">
+                    <label for="productSelect">Chọn sản phẩm:</label>
+                    <select id="productSelect" name="product">
+                        <!-- Options sẽ được thêm bằng JavaScript -->
+                    </select>
+                    <label for="increaseQuantityInput">Số lượng mới:</label>
+                    <input type="number" id="increaseQuantityInput" name="quantity" min="1" value="1">
+                    <button type="submit">Nhập kho</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="column">
+            <div class="quantity-container">
+                <h2>Sản Phẩm Hỏng(lỗi)</h2>
+                <form id="decreaseForm">
+                    <label for="productSelectDecrease">Chọn sản phẩm:</label>
+                    <select id="productSelectDecrease" name="product">
+                        <!-- Options sẽ được thêm bằng JavaScript -->
+                    </select>
+                    <label for="decreaseQuantityInput">Số lượng lỗi:</label>
+                    <input type="number" id="decreaseQuantityInput" name="quantity" min="1" value="1">
+                    <button type="submit">Xuất </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div id="productCount"></div>
+
+    <script>
+        // Lấy dữ liệu sản phẩm từ API
+        fetch('http://localhost:3000/products')
+            .then(response => response.json())
+            .then(products => {
+                // Tính tổng số lượng hàng hóa trong kho
+                const totalQuantity = products.reduce((total, product) => total + product.quantity, 0);
+
+                // Hiển thị tổng số lượng hàng hóa trong kho
+                document.getElementById('productCount').innerText = `Tổng số lượng hàng hóa trong kho: ${totalQuantity}`;
+
+                // Hiển thị tên và số lượng của mỗi sản phẩm
+                const productList = document.getElementById('productList');
+                products.forEach(product => {
+                    const listItem = document.createElement('li');
+                    listItem.innerText = `${product.name}: SL ${product.quantity}`;
+
+                    // Thêm lớp 'sold-out' nếu sản phẩm sắp hết hàng
+                    if (product.quantity < 10) {
+                        listItem.classList.add('sold-out');
+                        listItem.innerText += ' - Sắp hết hàng';
+                    }
+
+                    productList.appendChild(listItem);
+
+                    // Thêm tùy chọn vào danh sách chọn sản phẩm
+                    const option = document.createElement('option');
+                    option.value = product.id;
+                    option.innerText = product.name;
+                    document.getElementById('productSelect').appendChild(option);
+                    // Thêm tùy chọn vào danh sách chọn sản phẩm (Xuất kho)
+                    const optionDecrease = document.createElement('option');
+                    optionDecrease.value = product.id;
+                    optionDecrease.innerText = product.name;
+                    document.getElementById('productSelectDecrease').appendChild(optionDecrease);
+                });
+
+            })
+            .catch(error => {
+                console.error('Có lỗi xảy ra khi lấy dữ liệu từ server:', error);
+            });
+
+        // Xử lý sự kiện khi form Tăng số lượng được gửi
+        document.getElementById('increaseForm').addEventListener('submit', function (event) {
+            event.preventDefault(); // Ngăn chặn trình duyệt gửi yêu cầu mặc định
+
+            const productId = document.getElementById('productSelect').value;
+            const quantityInput = parseInt(document.getElementById('increaseQuantityInput').value);
+
+            // Lấy số lượng hiện tại của sản phẩm được chọn
+            fetch(`http://localhost:3000/products/${productId}`)
+                .then(response => response.json())
+                .then(product => {
+                    const currentQuantity = product.quantity;
+
+                    // Tăng số lượng mới vào số lượng hiện tại
+                    const newQuantity = currentQuantity + quantityInput;
+
+                    // Gửi yêu cầu PATCH đến API để cập nhật số lượng sản phẩm
+                    fetch(`http://localhost:3000/products/${productId}`, {
+                        method: 'PATCH',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            quantity: newQuantity
+                        })
+                    })
+                        .then(response => response.json())
+                        .then(updatedProduct => {
+                            // Hiển thị số lượng sản phẩm đã được cập nhật
+                            alert(`Nhập thành công: ${updatedProduct.name} số lượng là: ${updatedProduct.quantity}`);
+                        })
+                        .catch(error => {
+                            console.error('Có lỗi xảy ra khi gửi yêu cầu tăng số lượng sản phẩm!', error);
+                        });
+                })
+                .catch(error => {
+                    console.error('Có lỗi xảy ra khi lấy số lượng hiện tại của sản phẩm!', error);
+                });
+        });
+
+        // Xử lý sự kiện khi form Xuất số lượng được gửi
+        document.getElementById('decreaseForm').addEventListener('submit', function (event) {
+            event.preventDefault(); // Ngăn chặn trình duyệt gửi yêu cầu mặc định
+
+            const productId = document.getElementById('productSelectDecrease').value;
+            const quantityInput = parseInt(document.getElementById('decreaseQuantityInput').value);
+
+            // Lấy số lượng hiện tại của sản phẩm được chọn
+            fetch(`http://localhost:3000/products/${productId}`)
+                .then(response => response.json())
+                .then(product => {
+                    const currentQuantity = product.quantity;
+
+                    // Kiểm tra xem số lượng cần xuất có lớn hơn số lượng hiện tại hay không
+                    if (quantityInput > currentQuantity) {
+                        alert('Số lượng cần xuất lớn hơn số lượng hiện có trong kho!');
+                        return;
+                    }
+
+                    // Giảm số lượng mới từ số lượng hiện tại
+                    const newQuantity = currentQuantity - quantityInput;
+
+                    // Gửi yêu cầu PATCH đến API để cập nhật số lượng sản phẩm
+                    fetch(`http://localhost:3000/products/${productId}`, {
+                        method: 'PATCH',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            quantity: newQuantity
+                        })
+                    })
+                        .then(response => response.json())
+                        .then(updatedProduct => {
+                            // Hiển thị số lượng sản phẩm đã được cập nhật
+                            alert(`Đã xuất số lượng sản phẩm ${updatedProduct.name}, số lượng còn lại: ${updatedProduct.quantity}`);
+                        })
+                        .catch(error => {
+                            console.error('Có lỗi xảy ra khi gửi yêu cầu xuất số lượng sản phẩm!', error);
+                        });
+                })
+                .catch(error => {
+                    console.error('Có lỗi xảy ra khi lấy số lượng hiện tại của sản phẩm!', error);
+                });
+        });
+    </script>
+</body>
+
+</html>
